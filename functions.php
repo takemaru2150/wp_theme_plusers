@@ -14,3 +14,16 @@ function navbutton_scripts(){
   }
   add_action( 'wp_enqueue_scripts' , 'navbutton_scripts' );
   
+  //サイドバーにウィジェット追加
+function widgetarea_init() {
+    register_sidebar(array(
+        'name'=>'サイドバー',
+        'id' => 'side-widget',
+        'before_widget'=>'<div id="%1$s" class="%2$s sidebar-wrapper">',
+        'after_widget'=>'</div>',
+        'before_title' => '<h4 class="sidebar-title">',
+        'after_title' => '</h4>'
+        ));
+    }
+    add_action( 'widgets_init', 'widgetarea_init' );
+    
